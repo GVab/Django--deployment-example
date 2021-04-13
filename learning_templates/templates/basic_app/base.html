@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title_block %}
+      {% endblock %}
+    </title>
+    <script type="text/javascript" src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/css/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'index' %}">Brand</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:other' %}">Other</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block body_block %}
+        <!-- Anythin outside this will be inherited -->
+      {% endblock%}
+    </div>
+
+  </body>
+</html>
